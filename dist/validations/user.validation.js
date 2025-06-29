@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { USER_TYPE } from "../constants/user.constant.js";
 export const signUpSchema = {
     body: z.object({
         name: z
@@ -23,8 +24,8 @@ export const signUpSchema = {
         phone: z
             .number({ message: "Phone number is required" })
             .min(10, "Phone number must be at least 10 digits long"),
-        userType: z.enum(["ADMIN", "SUPER_ADMIN"], {
-            message: "userType must be ADMIN or SUPER_ADMIN",
+        userType: z.nativeEnum(USER_TYPE, {
+            message: `userType must be one of ${USER_TYPE}`,
         }),
     }),
 };

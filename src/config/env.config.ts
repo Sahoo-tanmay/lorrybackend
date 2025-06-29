@@ -19,7 +19,6 @@ const envConfig = {
     10,
   ),
   CORS_ORIGIN: process.env.CORS_ORIGIN || "*",
-  REDIS_URL: process.env.REDIS_URL,
   REDIS_DEFAULT_TTL: parseInt(process.env.REDIS_DEFAULT_TTL || "3600", 10),
   LOG_FILE_VALIDITY: process.env.LOG_FILE_VALIDITY || "1d",
   NODE_MAILER_EMAIL: process.env.NODEMAILER_EMAIL || "",

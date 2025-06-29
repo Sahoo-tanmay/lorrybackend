@@ -5,19 +5,23 @@ export declare const signUpSchema: {
         password: z.ZodEffects<z.ZodEffects<z.ZodEffects<z.ZodString, string, string>, string, string>, string, string>;
         email: z.ZodString;
         phone: z.ZodNumber;
-        userType: z.ZodEnum<["ADMIN", "SUPER_ADMIN"]>;
+        userType: z.ZodNativeEnum<{
+            readonly ADMIN: "ADMIN";
+            readonly SUPER_ADMIN: "SUPER_ADMIN";
+            readonly HELPER: "HELPER";
+        }>;
     }, "strip", z.ZodTypeAny, {
         name: string;
-        phone: number;
-        email: string;
         password: string;
-        userType: "ADMIN" | "SUPER_ADMIN";
+        email: string;
+        phone: number;
+        userType: "ADMIN" | "SUPER_ADMIN" | "HELPER";
     }, {
         name: string;
-        phone: number;
-        email: string;
         password: string;
-        userType: "ADMIN" | "SUPER_ADMIN";
+        email: string;
+        phone: number;
+        userType: "ADMIN" | "SUPER_ADMIN" | "HELPER";
     }>;
 };
 export declare const signInSchema: {
@@ -25,11 +29,11 @@ export declare const signInSchema: {
         email: z.ZodString;
         password: z.ZodEffects<z.ZodEffects<z.ZodEffects<z.ZodString, string, string>, string, string>, string, string>;
     }, "strip", z.ZodTypeAny, {
-        email: string;
         password: string;
+        email: string;
     }, {
-        email: string;
         password: string;
+        email: string;
     }>;
 };
 //# sourceMappingURL=user.validation.d.ts.map

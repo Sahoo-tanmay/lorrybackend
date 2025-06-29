@@ -5,10 +5,9 @@ import mongoSanitize from "express-mongo-sanitize";
 import path from "path";
 import { fileURLToPath } from "url";
 
-import envConfig from "./config/env.config.js";
+import connectDB from "./config/db.config.js";
 import { startServer } from "./config/template.config.js";
 import RootRouter from "./routes/routes.js";
-// import connectDB from "./config/db.config.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -16,12 +15,12 @@ const __dirname = path.dirname(__filename);
 export const app = express();
 export type ServerType = ReturnType<typeof app>;
 
-startServer({ port: Number(envConfig.PORT), app });
+startServer({  app });
 // db connection
-// const initialize = () => {
-//  connectDB();
-// };
-// initialize();
+const initialize = () => {
+ connectDB();
+};
+initialize();
 
 app.use(
   cors({

@@ -9,7 +9,6 @@ declare const envConfig: {
     OTP_RATE_LIMIT_MAX: number;
     OTP_RATE_LIMIT_WINDOW_MS: number;
     CORS_ORIGIN: string;
-    REDIS_URL: string | undefined;
     REDIS_DEFAULT_TTL: number;
     LOG_FILE_VALIDITY: string;
     NODE_MAILER_EMAIL: string;

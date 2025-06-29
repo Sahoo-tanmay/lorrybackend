@@ -11,7 +11,7 @@ export interface IUser extends Document {
     profilePhoto: string;
     token: string;
 }
-export declare const UserModel: mongoose.Model<IUser, {}, {}, {}, mongoose.Document<unknown, {}, IUser> & IUser & Required<{
+export declare const UserModel: mongoose.Model<IUser, {}, {}, {}, mongoose.Document<unknown, {}, IUser, {}> & IUser & Required<{
     _id: string;
 }> & {
     __v: number;
