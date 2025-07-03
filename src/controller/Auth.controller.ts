@@ -30,7 +30,7 @@ export const signUpController = async (
 
     const { password: _, ...userWithoutPassword } = newUser.toObject();
 
-    return res.created(userWithoutPassword, "User Created Successfully");
+    return res.success(userWithoutPassword, "User Created Successfully");
   } catch (error) {
     next(error);
   }
@@ -39,10 +39,10 @@ export const signInController = async (
   req: Request,
   res: Response,
   next: NextFunction,
-): Promise<void> => {
+) => {
   try {
-    const { email, password, userType } = req.body;
-    const user = await UserModel.findOne({ email, userType }).lean();
+    const { email, password } = req.body;
+    const user = await UserModel.findOne({ email }).lean();
     if (!user) {
       res.status(400).json({ message: "User not found" });
       return;
@@ -57,7 +57,7 @@ export const signInController = async (
 
     const token = authService.generateToken(user._id.toString());
 
-    return res.created(
+    return res.success(
       {
         token,
         user: userWithoutPassword,

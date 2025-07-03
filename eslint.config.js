@@ -23,7 +23,6 @@ export default [
         { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
       ],
       "no-console": "warn",
-      quotes: ["error", "double"],
       "simple-import-sort/imports": "warn",
       "simple-import-sort/exports": "warn",
     },

@@ -1,6 +1,6 @@
 
 export const USER_TYPE = {
   ADMIN: "ADMIN",
-  SUPER_ADMIN: "SUPER_ADMIN",
+  ACCOUNTANT: "ACCOUNTANT",
   HELPER: "HELPER",
 } as const;

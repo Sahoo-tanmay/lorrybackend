@@ -11,7 +11,7 @@ export const responseMiddleware = (
       message,
     });
   };
-  res.created = (data: any, message?: string) => {
+  res.success = (data: any, message?: string) => {
     res.json({
       success: true,
       data,

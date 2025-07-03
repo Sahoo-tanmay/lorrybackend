@@ -27,7 +27,7 @@ export const signUpSchema = {
       .number({ message: "Phone number is required" })
       .min(10, "Phone number must be at least 10 digits long"),
     userType: z.nativeEnum(USER_TYPE, {
-      message: `userType must be one of ${USER_TYPE}`,
+      message: `userType must be one of ${Object.values(USER_TYPE).join(", ")}`,
     }),
   }),
 };

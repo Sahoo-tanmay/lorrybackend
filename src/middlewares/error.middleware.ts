@@ -12,6 +12,7 @@ export const notFoundMiddleware = (req: Request, res: Response) => {
   });
 };
 
+
 export const errorHandler: ErrorRequestHandler = (
   err: ValidationError,
   req: Request,

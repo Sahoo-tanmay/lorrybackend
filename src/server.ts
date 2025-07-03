@@ -8,6 +8,8 @@ import { fileURLToPath } from "url";
 import connectDB from "./config/db.config.js";
 import { startServer } from "./config/template.config.js";
 import RootRouter from "./routes/routes.js";
+import { responseMiddleware } from "./middlewares/badrequest.middleware.js";
+import { errorHandler, notFoundMiddleware } from "./middlewares/error.middleware.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -35,7 +37,10 @@ app.use(express.json());
 app.use(mongoSanitize());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
+app.use(responseMiddleware)
 app.use(RootRouter);
+app.use(notFoundMiddleware);
+app.use(errorHandler);
 
 app.get("/", (_: Request, res: ExpressResponse) => {
   res.sendFile(path.join(__dirname, "../public/starter.html"));
